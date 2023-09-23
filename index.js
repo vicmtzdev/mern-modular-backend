@@ -26,7 +26,8 @@ app.use( express.json() );
 
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
-// TODO: CRUD
+app.use('/api/presets', require('./routes/presets'));
+
 
 
 // Escuchar peticiones
