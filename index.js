@@ -26,6 +26,7 @@ app.use( express.json() );
 
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/event', require('./routes/event'));
 app.use('/api/presets', require('./routes/presets'));
 
 
