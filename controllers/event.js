@@ -20,8 +20,6 @@ const crearEvento = async (req, res = response) => {
 
     try {
 
-        evento.user = req.uid;
-
         const eventoGuardado = await evento.save()
 
         res.json({
@@ -85,7 +83,6 @@ const actualizarEvento = async (req, res = response) => {
 const eliminarEvento = async (req, res = response) => {
 
     const eventoId = req.params.id;
-    const uid = req.uid;
 
     try {
 
@@ -98,16 +95,9 @@ const eliminarEvento = async (req, res = response) => {
             });
         }
 
-        if (evento.user.toString() !== uid) {
-            return res.status(401).json({
-                ok: false,
-                msg: 'No tiene privilegio de eliminar este evento',
-            });
-        }
-
         await Evento.findByIdAndDelete(eventoId);
 
-        res.status(401).json({
+        res.status(200).json({
             ok: true,
         });
 
