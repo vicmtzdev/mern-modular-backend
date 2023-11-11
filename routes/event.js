@@ -15,10 +15,6 @@ const router = Router();
 router.get('/', getEvento);
 
 
-// Validación del JWT
-router.use(validarJWT);
-
-
 // Crear evento
 router.post(
     '/',
@@ -46,6 +42,9 @@ router.put(
     actualizarEvento
 );
 
+
+// Validación del JWT
+router.use(validarJWT);
 
 // Eliminar evento
 router.delete('/:id', eliminarEvento);
