@@ -4,7 +4,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { validarJWT } = require('../middlewares/validar-jwt');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { getEvento, crearEvento, actualizarEvento, eliminarEvento } = require('../controllers/event');
 
@@ -42,9 +41,6 @@ router.put(
     actualizarEvento
 );
 
-
-// Validación del JWT
-router.use(validarJWT);
 
 // Eliminar evento
 router.delete('/:id', eliminarEvento);
